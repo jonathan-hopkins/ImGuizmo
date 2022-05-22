@@ -943,6 +943,9 @@ namespace IMGUIZMO_NAMESPACE
       ImGui::End();
       ImGui::PopStyleVar();
       ImGui::PopStyleColor(2);
+
+      if(!IsUsing())
+         gContext.mEditingID = -1;
    }
 
    bool IsUsing()
@@ -2890,4 +2893,17 @@ namespace IMGUIZMO_NAMESPACE
       // restore view/projection because it was used to compute ray
       ComputeContext(svgView.m16, svgProjection.m16, gContext.mModelSource.m16, gContext.mMode);
    }
+
+   int ActualID() { return gContext.mActualID; }
+
+   int EditingID() { return gContext.mEditingID; }
+
+   MODE GetMode() { return gContext.mMode; }
+   bool GetContextUsing() { return gContext.mbUsing; }
+   bool GetEnable() { return gContext.mbEnable; }
+   bool GetContextUsingBounds() { return gContext.mbUsingBounds; }
+   int GetContextMoveType() { return gContext.mCurrentOperation; }
+   bool IsOrthographic() { return gContext.mIsOrthographic; }
+   OPERATION GetContextOperation() { return gContext.mOperation; }
+   bool GetAllowAxisFlip() { return gContext.mAllowAxisFlip; }
 };

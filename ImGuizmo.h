@@ -220,4 +220,18 @@ namespace IMGUIZMO_NAMESPACE
    // When true (default), the guizmo axis flip for better visibility
    // When false, they always stay along the positive world/local axis
    IMGUI_API void AllowAxisFlip(bool value);
+
+   // added
+   IMGUI_API bool GetEnable();
+   IMGUI_API bool IsOrthographic();
+   IMGUI_API bool GetAllowAxisFlip();
+
+   // internal
+   IMGUI_API MODE GetMode();
+   IMGUI_API bool GetContextUsing();
+   IMGUI_API bool GetContextUsingBounds();
+   IMGUI_API int GetContextMoveType();
+   IMGUI_API int ActualID();
+   IMGUI_API int EditingID();
+   IMGUI_API OPERATION GetContextOperation();
 }
